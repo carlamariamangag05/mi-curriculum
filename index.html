@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#D6C9DF">
+  <title>Carla Maria Manga Gallardo | Currículum</title>
+  <style>
+    /* Morado ciruela oscuro para manchas, títulos e iconos. */
+    :root {
+      --ciruela: #6C4675;
+      /* Lila medio para la columna lateral y la onda del encabezado. */
+      --lila: #D6C9DF;
+      /* Lavanda pálido para el fondo de la página y el contenido. */
+      --lavanda: #EAE4F0;
+      /* Malva grisáceo para iconos secundarios y detalles lineales. */
+      --malva: #9A7FA3;
+      /* Gris oscuro con matiz morado para el texto principal. */
+      --tinta: #2E2433;
+      /* Sombra discreta para la página sobre el fondo lavanda. */
+      --sombra-pagina: rgb(46 36 51 / 14%);
+      /* Sombra más marcada bajo la fotografía. */
+      --sombra-foto: rgb(46 36 51 / 22%);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 28px;
+      background: var(--lavanda);
+      color: var(--tinta);
+      font-family: "Avenir Next", Avenir, "Segoe UI", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .cv {
+      display: grid;
+      grid-template-columns: minmax(280px, 40%) minmax(0, 60%);
+      max-width: 1040px;
+      min-height: 1100px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: var(--lavanda);
+      box-shadow: 0 16px 48px var(--sombra-pagina);
+    }
+
+    .sidebar {
+      position: relative;
+      z-index: 1;
+      isolation: isolate;
+      padding: 38px 34px 44px;
+      color: var(--tinta);
+    }
+
+    .sidebar::before {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: -38px;
+      bottom: 0;
+      left: 0;
+      border-radius: 0 42% 48% 0 / 0 16% 28% 0;
+      background: var(--lila);
+      content: "";
+    }
+
+    .portrait-wrap {
+      position: relative;
+      z-index: 0;
+      display: flex;
+      justify-content: center;
+      margin: 0 0 32px;
+      padding: 17px 0;
+    }
+
+    .portrait-wrap::before {
+      position: absolute;
+      z-index: -1;
+      top: -30px;
+      left: -60px;
+      width: 250px;
+      height: 245px;
+      border-radius: 38% 62% 54% 46% / 47% 42% 58% 53%;
+      background: var(--ciruela);
+      content: "";
+    }
+
+    .portrait {
+      width: 230px;
+      aspect-ratio: 1;
+      border: 6px solid var(--lavanda);
+      border-radius: 50%;
+      object-fit: contain;
+      object-position: center;
+      background: var(--lila);
+      box-shadow: 0 10px 24px var(--sombra-foto);
+    }
+
+    .section {
+      margin: 0 0 30px;
+    }
+
+    .section-title {
+      margin: 0 0 16px;
+      padding: 7px 0;
+      color: var(--ciruela);
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .sidebar .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sidebar .section-title::before,
+    .main-content .section-title::before {
+      display: inline-block;
+      width: 21px;
+      height: 21px;
+      flex: 0 0 21px;
+      background: var(--ciruela);
+      content: "";
+      mask: var(--section-icon) center / contain no-repeat;
+      -webkit-mask: var(--section-icon) center / contain no-repeat;
+    }
+
+    #contact-title {
+      --section-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z'/%3E%3C/svg%3E");
+    }
+
+    #skills-title {
+      --section-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 2a8 8 0 0 0-5 14.25V20a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-3.75A8 8 0 0 0 12 2Zm3 12.9-.5.3V17h-5v-1.8l-.5-.3A6 6 0 1 1 15 14.9ZM9 19h6v1H9Z'/%3E%3C/svg%3E");
+    }
+
+    #languages-title {
+      --section-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.92 9h-3.05a15.7 15.7 0 0 0-1.3-5.3A8.03 8.03 0 0 1 18.92 11ZM12 4c.9 1.3 1.57 4 1.83 7h-3.66c.26-3 .93-5.7 1.83-7ZM4.08 13h3.05c.2 1.96.66 3.8 1.3 5.3A8.03 8.03 0 0 1 4.08 13Zm3.05-2H4.08a8.03 8.03 0 0 1 4.35-5.3A15.7 15.7 0 0 0 7.13 11ZM12 20c-.9-1.3-1.57-4-1.83-7h3.66c-.26 3-.93 5.7-1.83 7Zm2.57-1.7c.64-1.5 1.1-3.34 1.3-5.3h3.05a8.03 8.03 0 0 1-4.35 5.3Z'/%3E%3C/svg%3E");
+    }
+
+    #education-title {
+      --section-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='m12 3 11 6-11 6L1 9l11-6Zm-7 9.18 7 3.82 7-3.82V17l-7 4-7-4v-4.82ZM21 10v6h-2v-7l2 1Z'/%3E%3C/svg%3E");
+    }
+
+    #experience-title {
+      --section-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 4a8 8 0 0 1 7.75 6h-2.1A6 6 0 0 0 7.4 7.2L9 8.8H4V3.9l1.98 1.98A7.97 7.97 0 0 1 12 4Zm6 11.2 1.6 1.6a6 6 0 0 1-10.25-2.8h-2.1A8 8 0 0 0 21.02 18L23 20v-4.9h-5l1.6 1.6A6 6 0 0 1 7.2 14h-2.1a8 8 0 0 0 12.9 4.8V15.2Z'/%3E%3C/svg%3E");
+    }
+
+    .contact-list,
+    .plain-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr);
+      align-items: center;
+      gap: 10px;
+      overflow-wrap: anywhere;
+    }
+
+    .icon {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--lavanda);
+      color: var(--malva);
+    }
+
+    .icon svg {
+      width: 15px;
+      height: 15px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.7;
+    }
+
+    .sidebar a {
+      color: var(--tinta);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .plain-list li {
+      padding-left: 15px;
+      position: relative;
+    }
+
+    .plain-list li::before {
+      position: absolute;
+      left: 0;
+      color: var(--ciruela);
+      content: "•";
+    }
+
+    .language {
+      margin: 0;
+    }
+
+    .language-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .language-level {
+      font-weight: 700;
+    }
+
+    .language-bar {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 4px;
+    }
+
+    .language-bar span {
+      height: 7px;
+      border-radius: 8px;
+      background: var(--lavanda);
+    }
+
+    .language-bar span:nth-child(-n + 2) {
+      background: var(--ciruela);
+    }
+
+    .main {
+      min-width: 0;
+    }
+
+    .intro {
+      position: relative;
+      padding: 64px 44px 42px;
+      border-radius: 0 0 0 14%;
+      background: var(--lila);
+      text-align: center;
+    }
+
+    .intro::after {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 74px;
+      height: 74px;
+      border: 3px solid var(--malva);
+      border-color: var(--malva) transparent var(--malva) var(--malva);
+      border-radius: 50%;
+      content: "";
+      transform: rotate(-35deg) scaleX(0.7);
+      pointer-events: none;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--ciruela);
+      font-size: clamp(2.15rem, 4.7vw, 3.5rem);
+      font-weight: 850;
+      letter-spacing: 0.035em;
+      line-height: 1.12;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      margin: 16px 0 0;
+      font-size: 0.86rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .intro .section {
+      margin: 34px 0 0;
+    }
+
+    .intro .section-title {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 0;
+      color: var(--ciruela);
+    }
+
+    .intro p {
+      max-width: 600px;
+      margin: 0 0 10px;
+    }
+
+    .main-content {
+      position: relative;
+      z-index: 0;
+      isolation: isolate;
+      padding: 42px 52px 52px;
+      background: var(--lavanda);
+    }
+
+    .main-content::after {
+      position: absolute;
+      z-index: -1;
+      right: -110px;
+      bottom: -100px;
+      width: 270px;
+      height: 230px;
+      border-radius: 55% 45% 38% 62% / 48% 58% 42% 52%;
+      background: var(--ciruela);
+      content: "";
+    }
+
+    .timeline {
+      margin: 0;
+      padding: 0 0 0 22px;
+      border-left: 2px solid var(--malva);
+      list-style: none;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 27px 15px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      position: absolute;
+      top: 7px;
+      left: -29px;
+      width: 12px;
+      height: 12px;
+      border: 2px solid var(--lavanda);
+      border-radius: 50%;
+      background: var(--ciruela);
+      box-shadow: 0 0 0 1px var(--ciruela);
+      content: "";
+    }
+
+    .entry-title {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .entry-place,
+    .entry-date {
+      margin: 3px 0 0;
+    }
+
+    .entry-place {
+      font-weight: 600;
+    }
+
+    .entry-date {
+      color: var(--malva);
+      font-size: 0.92rem;
+    }
+
+    .other-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 12px;
+        font-size: 14px;
+      }
+
+      .cv {
+        grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+        min-height: 0;
+      }
+
+      .sidebar {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 22px 12px 12px;
+      }
+
+      .sidebar::before {
+        right: 0;
+        border-radius: 0 28% 22% 0 / 0 8% 12% 0;
+      }
+
+      .portrait-wrap {
+        grid-column: auto;
+        margin-bottom: 12px;
+      }
+
+      .portrait {
+        width: min(130px, 100%);
+      }
+
+      .portrait-wrap::before {
+        top: -8px;
+        left: -18px;
+        width: 150px;
+        height: 150px;
+      }
+
+      .sidebar .section-title {
+        margin-left: 0;
+        gap: 7px;
+        font-size: 0.78rem;
+        letter-spacing: 0.04em;
+      }
+
+      .sidebar .section-title::before,
+      .main-content .section-title::before {
+        width: 17px;
+        height: 17px;
+        flex-basis: 17px;
+      }
+
+      .contact-item {
+        grid-template-columns: 24px minmax(0, 1fr);
+        gap: 6px;
+      }
+
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
+
+      .icon svg {
+        width: 13px;
+        height: 13px;
+      }
+
+      .section {
+        margin-bottom: 13px;
+      }
+
+      .section-title {
+        margin-bottom: 9px;
+      }
+
+      .intro {
+        padding: 38px 14px 26px;
+      }
+
+      .intro::after {
+        top: 12px;
+        right: 12px;
+        width: 46px;
+        height: 46px;
+      }
+
+      h1 {
+        font-size: clamp(1.25rem, 6vw, 2rem);
+        letter-spacing: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .subtitle {
+        font-size: 0.67rem;
+        letter-spacing: 0.08em;
+      }
+
+      .main-content {
+        padding: 24px 14px 30px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      body {
+        padding: 8px;
+        font-size: 12px;
+      }
+
+      .sidebar .section {
+        margin-bottom: 11px;
+      }
+
+      .entry-title {
+        font-size: 0.94rem;
+      }
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: var(--lavanda);
+      }
+
+      .cv {
+        max-width: none;
+        box-shadow: none;
+      }
+
+      * {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="cv">
+    <aside class="sidebar">
+      <div class="portrait-wrap">
+        <img class="portrait" src="imagenes/foto.png" alt="Fotografía de Carla Maria Manga Gallardo">
+      </div>
+
+      <!-- ===== SECCIÓN: CONTACTO ===== -->
+      <section class="section" aria-labelledby="contact-title">
+        <h2 class="section-title" id="contact-title">Contacto</h2>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7 3h3l2 5-2 1.5a15 15 0 0 0 4.5 4.5L16 12l5 2v3c0 1.1-.9 2-2 2C10.7 19 5 13.3 5 6c0-1.7.8-3 2-3Z"/></svg>
+            </span>
+            <a href="tel:662344100">662344100</a>
+          </li>
+          <li class="contact-item">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+            </span>
+            <a href="mailto:carlamanggag05@gmail.com">carlamanggag05@gmail.com</a>
+          </li>
+          <li class="contact-item">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+            </span>
+            <span>El Puerto de Santa María, Cádiz</span>
+          </li>
+        </ul>
+      </section>
+      <!-- ===== FIN: CONTACTO ===== -->
+
+      <!-- ===== SECCIÓN: HABILIDADES ===== -->
+      <section class="section" aria-labelledby="skills-title">
+        <h2 class="section-title" id="skills-title">Habilidades</h2>
+        <ul class="plain-list">
+          <li>Responsabilidad</li>
+          <li>Perfeccionismo</li>
+          <li>Ganas de aprender</li>
+          <li>Trabajo en equipo / en grupo</li>
+        </ul>
+      </section>
+      <!-- ===== FIN: HABILIDADES ===== -->
+
+      <!-- ===== SECCIÓN: IDIOMAS ===== -->
+      <section class="section" aria-labelledby="languages-title">
+        <h2 class="section-title" id="languages-title">Idiomas</h2>
+        <div class="language">
+          <p class="language-label"><span>Inglés</span><span class="language-level">A2 · Básico</span></p>
+          <div class="language-bar" role="img" aria-label="Inglés, nivel básico A2">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </section>
+      <!-- ===== FIN: IDIOMAS ===== -->
+
+    </aside>
+
+    <main class="main">
+      <header class="intro">
+        <h1>Carla Maria<br>Manga Gallardo</h1>
+        <p class="subtitle">Grado en Trabajo Social</p>
+
+        <!-- ===== SECCIÓN: SOBRE MÍ ===== -->
+        <section class="section" aria-labelledby="about-title">
+          <h2 class="section-title" id="about-title">Sobre mí</h2>
+          <p>Me defino como una persona responsable, perfeccionista, empática, organizada y creativa.</p>
+          <p>Soy sociable, tengo facilidad para relacionarme con los demás y trabajar en equipo. Tengo ganas de aprender, mejorar y adquirir nuevas experiencias y conocimientos.</p>
+        </section>
+        <!-- ===== FIN: SOBRE MÍ ===== -->
+      </header>
+
+      <div class="main-content">
+        <!-- ===== SECCIÓN: FORMACIÓN ===== -->
+        <section class="section" aria-labelledby="education-title">
+          <h2 class="section-title" id="education-title">Formación</h2>
+          <ul class="plain-list">
+            <li><strong>Grado en Trabajo Social</strong><br>Universidad de Cádiz, Campus Jerez<br>2023 - Actualidad</li>
+            <li><strong>Graduado en Bachillerato de Humanidades</strong><br>IES José Luis Tejada Peluffo<br>2021 - 2023</li>
+            <li><strong>Graduado E.S.O.</strong><br>IES Antonio de la Torre<br>2017 - 2021</li>
+          </ul>
+        </section>
+        <!-- ===== FIN: FORMACIÓN ===== -->
+
+        <!-- ===== SECCIÓN: EXPERIENCIA ===== -->
+        <section class="section" aria-labelledby="experience-title">
+          <h2 class="section-title" id="experience-title">Experiencia laboral</h2>
+          <ol class="timeline">
+            <li class="timeline-item">
+              <h3 class="entry-title">Dependienta</h3>
+              <p class="entry-place">Álvaro Moreno Bahía Sur</p>
+              <p class="entry-date">2025 - 2026</p>
+            </li>
+            <li class="timeline-item">
+              <h3 class="entry-title">Ayudante de cocina</h3>
+              <p class="entry-place">Empresa de catering Pablo Grosso</p>
+              <p class="entry-date">2023 - 2025</p>
+            </li>
+            <li class="timeline-item">
+              <h3 class="entry-title">Cuidadora de niños</h3>
+              <p class="entry-date">2021 - 2022</p>
+            </li>
+          </ol>
+        </section>
+        <!-- ===== FIN: EXPERIENCIA ===== -->
+
+        <!-- ===== SECCIÓN: OTROS ===== -->
+        <section class="section" aria-labelledby="other-title">
+          <h2 class="section-title" id="other-title">Otros</h2>
+          <ul class="other-list">
+            <li>Permiso de conducir B (2023)</li>
+          </ul>
+        </section>
+        <!-- ===== FIN: OTROS ===== -->
+      </div>
+    </main>
+  </article>
+</body>
+</html>
